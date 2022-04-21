@@ -3,8 +3,30 @@ import Navbar from './Navbar';
 import './userHome.css'
 // import Footer from './Footer';
 import UserQuery from './userQuery';
+import {  useNavigate,useLocation } from 'react-router-dom';
+import axios from './axios';
 
-const userHome = () => {
+const UserHome = () => {
+
+    const navigate = useNavigate();
+
+    const { state } = useLocation();
+     const  UserId  = state.signInEmail || {};
+
+     console.log(UserId)
+    
+    const pendingQuery = async(e) =>{
+        e.preventDefault()
+
+        await axios.get('/user/pending?senderemail='+UserId)
+        .then(response => {
+            if (response.data) {
+              console.log(response.data)
+            }
+    
+          })
+
+    }
 
   return (
     <div>
@@ -13,7 +35,7 @@ const userHome = () => {
             <div className="userHome">
                 <div className="userHomeLeft">
                      <div className="pendingOutline1">
-                             <div className="pendingOutline2">
+                             <div className="pendingOutline2" onClick={pendingQuery}>
                                  <div className='pendingNumber'>1 <br/>
                                  <div className='pendingStatus'>Pending...</div>
                                  </div>
@@ -37,4 +59,4 @@ const userHome = () => {
   );
 }
 
-export default userHome;
+export default UserHome;

@@ -175,6 +175,7 @@ app.get('/signIn', [
 app.post('/userquery',[
     body('title','Title must be atleast 5 characters').isLength({ min: 5 }),
     body('sendername','Enter a valid senderName').isLength({ min: 5 }),
+    body('senderemail','Enter a valid sender Email-ID').isEmail(),
     body('senderrole',"Enter atleast 2-5 words in about section").isLength({min:2}),
     body('receiverrole',"Enter atleast 2-5 words in eligibility section").isLength({min:2}),
     body('complain',"Enter atleast 20 words in benefits section").isLength({min:20}),
@@ -204,6 +205,22 @@ app.post('/userquery',[
 
    
     })
+
+
+    app.get("/user/pending", (req,res) =>{
+        console.log(req.query)
+        
+        userQuerySchema.find(req.query,(err,data) => {
+            if(err){
+                res.status(500).send(err)
+                console.log(err)
+    
+            } else {
+                console.log(data)
+                res.status(200).send(data)
+            }
+        })
+    })     
 
 
 

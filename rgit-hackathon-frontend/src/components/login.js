@@ -22,6 +22,8 @@ const Login = () => {
             if(data.status===200){
                 alert("Successfully login")
             }
+
+            navigate('/userHome',{state: {signInEmail}})
             
 
         }).catch((err)=>{
@@ -51,12 +53,12 @@ const Login = () => {
                 if(data.status===200){
                    
                     document.getElementById("regName").value =""
-                    document.getElementById("regEmail").value = ""
+                    
                     document.getElementById("regMobile").value = ""
                     document.getElementById("regPassword").value = ""
                 }
 
-                navigate('/userHome')
+                navigate('/userHome',{state: {regEmail}})
             }).catch((err)=>{
                 alert(" Registration failed!")
             })

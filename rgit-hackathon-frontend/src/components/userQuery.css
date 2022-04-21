@@ -81,7 +81,7 @@
 .container-user {
     border: 2px solid black;
     width: 80%;
-    height: 90vh;
+    height: 95vh;
     display: block;
     margin: auto;
     background-color: rgb(188, 209, 243);
@@ -127,8 +127,18 @@
     flex-wrap: wrap;
     margin-bottom: 10px;
 }
+.emailuser{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
 
 .stateuser{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.w{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10px;
@@ -136,4 +146,5 @@
 
 .inputuser{
     flex:1;
+    margin-right: 10px;
 }

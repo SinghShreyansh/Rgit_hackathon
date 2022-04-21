@@ -9,6 +9,7 @@ import Landing from './components/landing';
 import UserHome from './components/userHome';
 import AdminHome from './components/adminHome';
 // import splashScreen from './components/splashScreen.html'
+import PendingDataSheet from './components/pendingDataSheet';
 function App() {
   return (
     <>
@@ -24,6 +25,9 @@ function App() {
                       
           </Route>
           <Route element={<AdminHome/>} path="/adminHome">
+                      
+          </Route>
+          <Route element={<PendingDataSheet/>} path="/pendingData">
                       
           </Route>
     </Routes>

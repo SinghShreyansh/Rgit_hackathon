@@ -12,6 +12,7 @@ const UserQuery = () => {
 
         const title = document.getElementById("userTitle").value
         const senderName = document.getElementById("senderName").value
+        const senderEmail = document.getElementById("senderEmail").value
         const senderRole = document.getElementById("senderRole").value
         const receiverRole = document.getElementById("receiverRole").value
         const complain = document.getElementById("txtuser").value
@@ -21,6 +22,7 @@ const UserQuery = () => {
         await axios.post('/userquery',{
             title: title,
             sendername: senderName,
+            senderemail:senderEmail,
             senderrole: senderRole,
             receiverrole: receiverRole,
             complain:complain,
@@ -28,6 +30,7 @@ const UserQuery = () => {
             if(data.status===200){
                 document.getElementById("userTitle").value=""
                 document.getElementById("senderName").value=""
+                document.getElementById("senderEmail").value=""
                 document.getElementById("senderRole").value=""
                 document.getElementById("receiverRole").value=""
                 document.getElementById("txtuser").value=""
@@ -55,7 +58,11 @@ const UserQuery = () => {
                         <label for="authoruser">Your name:</label>
                         <input class="inputuser input-author-user" id='senderName' type="text" required/>
                     </div>
-                    <div class="stateuser">
+                    <div class="emailuser">
+                        <label for="authoruser">Your Email-ID:</label>
+                        <input class="inputuser input-author-user" id='senderEmail' type="email" required/>
+                    </div>
+                    <div class="w">
                         <label for="location">Your Role In Company :</label>
                         <input class="inputuser input-state-user" id='senderRole' type="text"  required/>
                     </div>
