@@ -7,6 +7,7 @@
     border-radius: 10px;
     font-weight: bolder;
     background-color: rgb(65, 102, 189);
+    margin-top: 20px;
         /* color: aqua; */
 }
 
@@ -44,12 +45,7 @@
     position: relative;
     
 }
-.inputuser{
-    position: absolute;
-    right: 10px;
-    width: 75%;
-    height: 30px;
-}
+
 
 #formuser .titleuser .title-bar-user {
     width: 90%;
@@ -80,17 +76,7 @@
     position: relative;
 }
 
-#formuser .bottomuser .authoruser .input-author-user {
-    margin-left: 12px;
-    width: 25rem;
-    height: 30px;
-}
 
-#formuser .bottomuser .stateuser .input-state-user {
-    margin-left: 12px;
-    width: 20rem;
-    height: 30px;
-}
 
 .container-user {
     border: 2px solid black;
@@ -124,19 +110,30 @@
     height: 40vh;
 }
 
-.container-user #formuser .img-user {
-    margin-top: 12px;
-    margin-left: 34px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-}
-
-.container-user #formuser .img-user #preview-img-user {
-    font-size: 17px;
-}
 
 .radio-ele-user {
     margin-left: 25px;
     margin-top: 8px;
 }
 
+
+.titleuser{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.authoruser{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.stateuser{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.inputuser{
+    flex:1;
+}

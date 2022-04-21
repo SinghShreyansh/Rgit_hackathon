@@ -8,6 +8,7 @@ import Login from './components/login';
 import Landing from './components/landing';
 import UserHome from './components/userHome';
 import AdminHome from './components/adminHome';
+// import splashScreen from './components/splashScreen.html'
 function App() {
   return (
     <>

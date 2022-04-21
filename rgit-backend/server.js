@@ -7,6 +7,8 @@ const auth = require("firebase/compat/auth")
 require ("firebase/compat/firestore")
 require ("firebase/compat/storage")
 const UserSchema = require("./dbUser")
+const userQuerySchema = require("./dbUserQuery")
+const fileUpload = require('express-fileupload')
 
 
 
@@ -35,6 +37,7 @@ const port = process.env.PORT || 9000 ;
 app.use(express.json())
 // cors library is used for sharing resources from one domain to another
 app.use(cors())
+app.use(fileUpload());
 
 
 const database= mongoose.connection
@@ -53,6 +56,50 @@ mongoose.connect(connection_url,{
 
 
 app.post('/user/register', [
+    body('username', 'Enter a valid name').isLength({ min: 5 }),
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
+    body('mobile','Enter valid mobile number').isMobilePhone(),
+], async (req, res) => {
+    
+    console.log(req.body)
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    console.log(errors)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+    const email = req.body.email;
+    console.log(email)
+    const password = req.body.password;
+    const UserData = req.body;
+    Auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+            // it successfully created a new user with email and password
+            if (auth) {
+                 
+               UserSchema.create(UserData,(err,res)=>{
+                if(err){
+                    //internal server error 
+                    return res.status(500).send("Your data not included in database")
+                }
+                                
+               })
+
+            }
+        })
+        .catch(error => { 
+            console.log(error)
+            res.status(400).send("You are already registered or may be technical issue !")
+        })
+
+        res.status(200).send("Successfully registered !")        
+
+});
+
+
+app.post('/admin/register', [
     body('username', 'Enter a valid name').isLength({ min: 5 }),
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
@@ -123,6 +170,41 @@ app.get('/signIn', [
             res.status(400).send("Please first register yourself !")
         })
 });
+
+
+app.post('/userquery',[
+    body('title','Title must be atleast 5 characters').isLength({ min: 5 }),
+    body('sendername','Enter a valid senderName').isLength({ min: 5 }),
+    body('senderrole',"Enter atleast 2-5 words in about section").isLength({min:2}),
+    body('receiverrole',"Enter atleast 2-5 words in eligibility section").isLength({min:2}),
+    body('complain',"Enter atleast 20 words in benefits section").isLength({min:20}),
+], async (req, res) =>{
+    console.log(req.body)
+        // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).send(
+            { errors:errors.array()} );
+    }
+
+            let insobj= req.body
+
+            console.log(insobj)
+            userQuerySchema.create(insobj, (err, data) => {
+                if(err){
+                    //internal server error 
+                    res.status(500).send(err)
+                }else {
+                    res.json({"status":"Record inserted successfully"});
+        
+                }
+            })
+        
+    
+
+   
+    })
+
 
 
 
