@@ -1,0 +1,79 @@
+
+.userHome{
+    background-color: rgb(118, 128, 242);
+}
+
+
+
+.userHomeLeft{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pendingOutline1{
+    border: 2px solid black;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 200%;
+}
+
+.completeOutline1{
+    margin-left: 10vw;
+    border: 2px solid black;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 200%;
+}
+
+.pendingOutline2{
+    border: 2px solid black;
+    height: 18vh;
+    width: 18vh;
+    border-radius: 200%;
+    margin: 5px;
+    position: relative;
+}
+
+.pendingNumber {
+    position: absolute;
+    top: 4px;
+    left: 50px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.pendingStatus{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 800;
+    right: -50px;
+}
+
+.completeOutline2{
+    border: 2px solid black;
+    height: 18vh;
+    width: 18vh;
+    border-radius: 200%;
+    margin: 5px;
+    position: relative;
+}
+
+.completeNumber {
+    position: absolute;
+    top: 4px;
+    left: 50px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.completeStatus{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 800;
+    right: -50px;
+}
+

@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import Login from './components/login';
 import Landing from './components/landing';
+import UserHome from './components/userHome';
+import AdminHome from './components/adminHome';
 function App() {
   return (
     <>
@@ -15,6 +17,12 @@ function App() {
                             
           </Route>
           <Route element={<Login/>} path="/login">
+                      
+          </Route>
+          <Route element={<UserHome/>} path="/userHome">
+                      
+          </Route>
+          <Route element={<AdminHome/>} path="/adminHome">
                       
           </Route>
     </Routes>

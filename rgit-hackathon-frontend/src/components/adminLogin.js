@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import './login.css'
 import {  useNavigate } from 'react-router-dom';
 import axios from './axios';
+import backBtn from '../temp/user.png'
 
 
 const Login = () => {
@@ -42,7 +43,7 @@ const Login = () => {
                return alert("Please fill all input data");
             }
 
-            await axios.post("/user/register",{
+            await axios.post("/admin/register",{
                 username: regName,
                 email: regEmail,
                 mobile: regMobile,
@@ -56,7 +57,7 @@ const Login = () => {
                     document.getElementById("regPassword").value = ""
                 }
 
-                navigate('/userHome')
+                navigate('/adminHome')
             }).catch((err)=>{
                 alert(" Registration failed!")
             })

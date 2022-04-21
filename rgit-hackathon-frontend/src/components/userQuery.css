@@ -1,0 +1,142 @@
+.btnuser {
+    width: 15rem;
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: bolder;
+    background-color: rgb(65, 102, 189);
+        /* color: aqua; */
+}
+
+.btnuser:hover {
+    background-color: rgba(48, 89, 184, 0.507);
+}
+
+#upload_news_section {
+    position: relative;
+    margin-top: -8px;
+}
+
+#upload_section::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    opacity: 0.7;
+}
+
+#formuser {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+
+/* title bar */
+#formuser .titleuser {
+    margin-right: 15px;
+    margin-left: 20px;
+    display: flex;
+    position: relative;
+    
+}
+.inputuser{
+    position: absolute;
+    right: 10px;
+    width: 75%;
+    height: 30px;
+}
+
+#formuser .titleuser .title-bar-user {
+    width: 90%;
+    margin-left: 12px;
+    height: 34px;
+}
+
+.textareauser {
+    max-width: 98%;
+    max-height: 40vh;
+}
+
+#formuser .bottomuser {
+    /* display: flex; */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#formuser .bottomuser .stateuser {
+    margin-left: 10px;
+    margin-right: 15px;
+    position: relative;
+}
+
+#formuser .bottomuser .authoruser {
+    margin-left: 10px;
+    margin-right: 15px;
+    position: relative;
+}
+
+#formuser .bottomuser .authoruser .input-author-user {
+    margin-left: 12px;
+    width: 25rem;
+    height: 30px;
+}
+
+#formuser .bottomuser .stateuser .input-state-user {
+    margin-left: 12px;
+    width: 20rem;
+    height: 30px;
+}
+
+.container-user {
+    border: 2px solid black;
+    width: 80%;
+    height: 90vh;
+    display: block;
+    margin: auto;
+    background-color: rgb(188, 209, 243);
+    margin-top: 12px;
+    font-size: 23px;
+    font-family: 'Baloo 2', cursive;
+    color: rgb(4, 8, 37);
+}
+
+.h1-user {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cont-user {
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+#txtuser {
+    width: 96%;
+    margin-left: 15px;
+    margin-top: 8px;
+    height: 40vh;
+}
+
+.container-user #formuser .img-user {
+    margin-top: 12px;
+    margin-left: 34px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.container-user #formuser .img-user #preview-img-user {
+    font-size: 17px;
+}
+
+.radio-ele-user {
+    margin-left: 25px;
+    margin-top: 8px;
+}
+
