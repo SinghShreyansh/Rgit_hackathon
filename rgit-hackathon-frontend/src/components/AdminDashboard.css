@@ -9,6 +9,7 @@
 .main-container-admin {
     margin-top: 20px;
     display: flex;
+    justify-content: center;
     background-color: #f2f2f2;
 }
 

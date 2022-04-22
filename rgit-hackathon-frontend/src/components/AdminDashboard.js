@@ -56,20 +56,7 @@ const AdminDashboard = () => {
                 <h4>{counter}</h4>
             </div>
         </div>
-        <div class="container-admin">
-            <div class="admin-image3 admin-image"><img src={unlock}  alt=""/></div>
-            <div class="admin-div">
-                <h6>Open tickets</h6>
-                <h4>0</h4>
-            </div>
-        </div>
-        <div class="container-admin">
-            <div class="admin-image4 admin-image"><img src={lock} alt=""/></div>
-            <div class="admin-div">
-                <h6>Closed tickets</h6>
-                <h4>0</h4>
-            </div>
-        </div>
+        
     </div>
     </div>
 
@@ -82,7 +69,7 @@ const AdminDashboard = () => {
                 <th scope="col">Title</th>
                 <th scope="col">Sender Role</th>
                 <th scope="col">Sender Name</th>
-                <th scope="col">Delete</th>
+                {/* <th scope="col">Delete</th> */}
                 <th scope="col">Edit</th>
               </tr>
             </thead>

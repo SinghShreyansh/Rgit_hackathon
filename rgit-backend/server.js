@@ -7,6 +7,7 @@ const auth = require("firebase/compat/auth")
 require ("firebase/compat/firestore")
 require ("firebase/compat/storage")
 const UserSchema = require("./dbUser")
+const CheckedSchema = require("./dbChecked")
 const userQuerySchema = require("./dbUserQuery")
 const fileUpload = require('express-fileupload')
 
@@ -206,6 +207,65 @@ app.post('/userquery',[
    
     })
 
+ 
+    app.post('/adminReply',[
+        body('complain',"Enter atleast 20 words in benefits section").isLength({min:20}),
+    ], async (req, res) =>{
+        console.log(req.body)
+            // Finds the validation errors in this request and wraps them in an object with handy functions
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).send(
+                { errors:errors.array()} );
+        }
+
+        let query={complain : req.body.complain }
+        let checkedData ="";
+        await userQuerySchema.find(query,(err,data) => {
+            if(err){
+                res.status(500).send(err)
+                console.log(err)
+    
+            } else {
+                data=data[0]
+
+                let newObj = {
+                    title:data.title,
+                    sendername:data.sendername,
+                    senderrole:data.senderrole,
+                    senderemail:data.senderemail,
+                    receiverrole:data.receiverrole,
+                    complain:data.complain,
+                    replymsg:req.body.replymsg
+                }
+                 
+              CheckedSchema.create(newObj, (err, data) => {
+                    if(err){
+                        //internal server error 
+                        res.status(500).send(err)
+                    }else {
+
+                        userQuerySchema.deleteOne(query,(err,data)=>{
+                            if(err){
+                                res.status(500).send(err)
+                                console.log(err)
+                    
+                            }
+                        })
+                        res.json({"status":"Record inserted successfully"});
+                        console.log("success")
+                    }
+                })
+            }
+        })
+    
+                
+            
+        
+    
+       
+        })    
+
 
     app.get("/user/pending", (req,res) =>{
         console.log(req.query)
@@ -220,7 +280,22 @@ app.post('/userquery',[
                 res.status(200).send(data)
             }
         })
-    })     
+    })  
+    
+    
+app.delete('/user/pending/delete',(req,res)=>{
+    console.log(req.query)
+
+    userQuerySchema.deleteOne(req.query,(err,data)=>{
+        if(err){
+            res.status(500).send(err)
+            console.log(err)
+
+        } else {
+              res.status(200).send("deleted successfully")
+        }
+    })
+})    
 
 
 

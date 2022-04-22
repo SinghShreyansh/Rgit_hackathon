@@ -11,8 +11,8 @@ const AdminTableData = ({data,index,count}) => {
                 <td><p  onClick={(e)=>navigate('/ticketDetail',{state:{data}})} style={{textDecoration: "none",cursor:"pointer"}}>{data.title}</p></td>
                 <td>{data.senderrole}</td>
                 <td>{data.sendername}</td>
-                <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                <td><button type="button" class="btn btn-info btn-sm">Edit</button></td>
+                {/* <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td> */}
+                <td><button type="button" onClick={()=>navigate('/adminReply',{state:{data}})} class="btn btn-info btn-sm">Reply</button></td>
               </tr>
   );
 }

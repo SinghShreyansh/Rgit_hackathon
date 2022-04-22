@@ -13,6 +13,7 @@ import AdminHome from './components/adminHome';
 import PendingDataSheet from './components/pendingDataSheet';
 import AdminDashboard from './components/AdminDashboard';
 import TicketDetail from './components/TicketDetail';
+import Reply from './components/Reply';
 function App() {
   return (
     <>
@@ -40,6 +41,9 @@ function App() {
                       
           </Route>
           <Route element={<TicketDetail/>} path="/ticketDetail">
+                      
+          </Route>
+          <Route element={<Reply/>} path="/adminReply">
                       
           </Route>
     </Routes>
