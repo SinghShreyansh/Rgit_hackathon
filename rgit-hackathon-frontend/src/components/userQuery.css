@@ -1,3 +1,5 @@
+
+
 .btnuser {
     width: 15rem;
     display: block;
@@ -6,7 +8,7 @@
     height: 30px;
     border-radius: 10px;
     font-weight: bolder;
-    background-color: rgb(65, 102, 189);
+    background: linear-gradient(to right, #ff105f, #ffad06);
     margin-top: 20px;
         /* color: aqua; */
 }
@@ -84,8 +86,8 @@
     height: 95vh;
     display: block;
     margin: auto;
-    background-color: rgb(188, 209, 243);
-    margin-top: 12px;
+    background-color: #fcc96a;
+        margin-top: 12px;
     font-size: 23px;
     font-family: 'Baloo 2', cursive;
     color: rgb(4, 8, 37);

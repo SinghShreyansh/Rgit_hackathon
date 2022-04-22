@@ -1,12 +1,6 @@
 import React from 'react';
-import './userQuery.css'
-import axios from './axios';
 
-
-const UserQuery = () => {
-    
-
-
+const UpdateQuery = () => {
     const addQuery = async(e)=>{
         e.preventDefault()
 
@@ -17,8 +11,6 @@ const UserQuery = () => {
         const receiverRole = document.getElementById("receiverRole").value
         const complain = document.getElementById("txtuser").value
 
-        let ms = Date.now();
-
         console.log(title,senderName,receiverRole,senderRole,complain)
 
         await axios.post('/userquery',{
@@ -28,7 +20,6 @@ const UserQuery = () => {
             senderrole: senderRole,
             receiverrole: receiverRole,
             complain:complain,
-            timestamp:ms
             }).then((data)=>{
             if(data.status===200){
                 document.getElementById("userTitle").value=""
@@ -82,7 +73,7 @@ const UserQuery = () => {
             <button type="submit" form="form1" onClick={addQuery} class="btnuser" value="Submit">Submit</button>
         </div>
     </div>
-  );
+  )
 }
 
-export default UserQuery;
+export default UpdateQuery;

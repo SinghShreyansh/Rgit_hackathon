@@ -6,7 +6,8 @@ const UserQuerySchema = mongoose.Schema({
     senderemail:String,
     senderrole: String,
     receiverrole: String,
-    complain: String,    
+    complain: String,
+    timestamp:Number  
 });
 
 

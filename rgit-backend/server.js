@@ -13,6 +13,7 @@ const fileUpload = require('express-fileupload')
 
 
 
+
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -252,6 +253,8 @@ app.post('/userquery',[
                     
                             }
                         })
+
+
                         res.json({"status":"Record inserted successfully"});
                         console.log("success")
                     }
