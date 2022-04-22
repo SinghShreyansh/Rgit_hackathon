@@ -31,7 +31,7 @@ const Landing = () => {
                 <img className="landing_admin_img" src={adminImage} alt=".." />
                  <button className="btn" onClick={(e) => {
                      e.preventDefault();
-                     navigate('/login')
+                     navigate('/adminLogin')
                  }} >ADMIN</button>
                 </div>
                 </div>

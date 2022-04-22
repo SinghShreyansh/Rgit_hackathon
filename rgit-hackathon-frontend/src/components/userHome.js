@@ -11,20 +11,15 @@ const UserHome = () => {
     const navigate = useNavigate();
 
     const { state } = useLocation();
-     const  UserId  = state.signInEmail || {};
+     const  UserId  = state || {};
 
-     console.log(UserId)
     
     const pendingQuery = async(e) =>{
         e.preventDefault()
 
-        await axios.get('/user/pending?senderemail='+UserId)
-        .then(response => {
-            if (response.data) {
-              console.log(response.data)
-            }
-    
-          })
+        navigate('/pendingData',{state:{UserId}})
+
+        
 
     }
 

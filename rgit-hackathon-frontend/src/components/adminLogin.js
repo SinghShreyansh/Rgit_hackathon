@@ -18,13 +18,16 @@ const Login = () => {
 
         const signInEmail = document.getElementById("loginEmail").value;
         const signInPassword = document.getElementById("loginPassword").value;
+        const signInAdminRole = document.getElementById("loginAdminRole").value;
 
         await axios.get(`/signIn?email=${signInEmail}&password=${signInPassword}`).then((data)=>{
             if(data.status===200){
                 alert("Successfully login")
             }
             
+            navigate('/adminDashboard',{state:{signInAdminRole}})
 
+            
         }).catch((err)=>{
             alert(" Please first register yourself !")
         })
@@ -38,8 +41,9 @@ const Login = () => {
             const regEmail= document.getElementById("regEmail").value
             const regMobile= document.getElementById("regMobile").value
             const regPassword= document.getElementById("regPassword").value
+            const regAdminRole= document.getElementById("adminRole").value
 
-            if(regName==="" || regEmail==="" || regMobile==="" || regPassword===""){
+            if(regName==="" || regEmail==="" || regMobile==="" || regPassword==="" || regAdminRole===""){
                return alert("Please fill all input data");
             }
 
@@ -47,7 +51,8 @@ const Login = () => {
                 username: regName,
                 email: regEmail,
                 mobile: regMobile,
-                password: regPassword
+                password: regPassword,
+                adminrole:regAdminRole
             }).then((data)=>{
                 if(data.status===200){
                    
@@ -57,7 +62,7 @@ const Login = () => {
                     document.getElementById("regPassword").value = ""
                 }
 
-                navigate('/adminHome')
+                navigate('/adminDashboard',{state:{regAdminRole}})
             }).catch((err)=>{
                 alert(" Registration failed!")
             })
@@ -92,6 +97,7 @@ const Login = () => {
 
                 <form id="login" className="input-group">
                     <input type="email" id='loginEmail' className="input-field" placeholder="email Id" required />
+                    <input type="email" id='loginAdminRole' className="input-field" placeholder="Admin Role" required />
                     <div className="admin-password-field-login">
                         <input type="password" id="loginPassword" class="input-field" autoComplete='password' placeholder="Enter Password" />
                     </div>                    <br />
@@ -101,11 +107,12 @@ const Login = () => {
                 <form id="register" className="input-group">
                     <input type="text"  id='regName' className="input-field" placeholder="User Name" required />
                     <input type="email"  id='regEmail' className="input-field" placeholder="email Id" required />
+                    <input type="text"  id='adminRole' className="input-field" placeholder="admin Role" required />
                     <input type="number"  id='regMobile' className="input-field" placeholder="Mobile Number" required />
                     <div class="admin-password-field">
                         <input type="password" id="regPassword" class="input-field"  autoComplete='password' placeholder="Enter Password" />
                     </div>  
-                    <button  type="submit"  className="submit-btn" onClick={registerCall}>Register</button>
+                    <button  type="submit" style={{marginBottom:"15px"}}  className="submit-btn" onClick={registerCall}>Register</button>
                 
                 </form>
             </div>

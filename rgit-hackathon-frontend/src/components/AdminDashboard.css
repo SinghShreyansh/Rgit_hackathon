@@ -1,0 +1,42 @@
+.container-admin {
+    width: 25%;
+    margin: 10px 3%;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px;
+    border-radius: 4px;
+}
+
+.main-container-admin {
+    margin-top: 20px;
+    display: flex;
+    background-color: #f2f2f2;
+}
+
+.container-admin {
+    display: flex;
+}
+.admin-image{
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+}
+.admin-image img{
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+}
+.admin-image1 {
+    background-color: yellowgreen;
+}
+.admin-image2 {
+    background-color: skyblue;
+}
+.admin-image3 {
+    background-color: orange;
+}
+.admin-image4 {
+    background-color: pink;
+}
+.admin-div{
+    margin-left: 10px;
+}

@@ -1,0 +1,25 @@
+.ticketDetailMain{
+    background-color: #f2f2f2d4;
+    padding: 10vw;
+    height: 100vh;
+}
+
+
+.admin_information{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 10px;
+    background-color: white;
+}
+
+.admin_info span{
+    font-weight: bold;
+    margin-top: 4px;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.admin_info p{
+    word-wrap: break-word;
+}
